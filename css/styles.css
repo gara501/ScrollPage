@@ -28,7 +28,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Anton', sans-serif;
+  font-weight: 900;
   letter-spacing: 1px;
   margin: 10px 0;
   text-transform: uppercase;
@@ -130,6 +130,7 @@ main {
   height: 50vh;
   margin-top: 20vh;
   padding-left: 20px;
+  width: 20%;
 }
 
 .scrollpoint {
@@ -140,25 +141,125 @@ main {
 }
 
 .scrollpoint span {
+  cursor: pointer;
   position: absolute;
   transition: all 300ms ease-in;
 }
 
 .scrollpoint > span:nth-child(2) {
   visibility: hidden;
-  transform: translateX(-100%);
+  transform: translateX(300%);
 }
 
 .scrollpoint.selected > span {
-  left: -30px;
+  font-weight: 900;
+  left: -55px;
 }
 
 .scrollpoint.selected > span:nth-child(2) {
   visibility: visible;
-  transform: translateX(100%);
+  transform: translateX(50px);
 }
 
 .menuicon {
-  color: white;
+  color: var(--color-white);
   font-size: 2em;
+}
+
+.scrollpage {
+  display: flex;
+  height: 50vh;
+  margin-top: 20vh;
+  position: relative;
+  width: 80%;
+}
+
+.scrollpage .slide {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: all 300ms ease-in;
+  width: 100%;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 5;
+}
+
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+.slide-content h1 {
+  font-size: 3em;
+  max-width: 500px;
+}
+
+.slide1 .slide-content {
+  background: url(../assets/warrior.png) no-repeat;
+  background-position-x: 100%;
+  background-size: contain;
+}
+
+.slide2 .slide-content {
+  background: url(../assets/slide2.png) no-repeat;
+  background-position-x: 100%;
+  background-position-y: 40%;
+  background-size: 40%;
+}
+
+.slide3 .slide-content {
+  background: url(../assets/slide3.png) no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  background-size: 40%;
+}
+
+.slide4 .slide-content {
+  background: url(../assets/slide4.png) no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  background-size: 50%;
+}
+
+.button-link {
+  color: var(--color-white);
+  font-weight: 700;
+  max-width: 250px;
+  position: relative;
+  text-transform: uppercase;
+  transition: all 300ms linear;
+  z-index: 1;
+}
+
+.button-link span {
+  padding-bottom: 10px;
+  transition: all 300ms linear;
+}
+
+.button-link:hover {
+  box-shadow: inset 0 0px 0 white, inset 0 -1px 0 var(--color-pink);
+}
+
+.button-link:hover span::after {
+  opacity: 0;
+  text-decoration: none;
+}
+
+.button-link span::after {
+  content: '→';
+  font-size: 1.5em;
+  font-weight: 900;
+  margin-left: 10px;
+  text-decoration: none;
+  transition: all 300ms linear;
 }
